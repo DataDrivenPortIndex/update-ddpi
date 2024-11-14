@@ -25,7 +25,7 @@ def spatial_join(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
     )
 
 
-def set_temporary_ddpi_id(gdf: gpd.GeoDataFrame, start_index: int) -> gpd.GeoDataFrame:
+def set_ddpi_id(gdf: gpd.GeoDataFrame, start_index: int) -> gpd.GeoDataFrame:
     gdf["ddpi_id"] = [start_index + i for i in range(len(gdf))]   
     
     return gdf
@@ -40,7 +40,7 @@ def main():
     df_l = gpd.read_file(args.ddpi)
     df_r = gpd.read_file(args.ddpi_new)
 
-    df_r = set_temporary_ddpi_id(df_r, len(df_l))
+    df_r = set_ddpi_id(df_r, len(df_l))
 
     gdf = pd.concat([df_l, df_r]).reset_index(drop=True)
 
