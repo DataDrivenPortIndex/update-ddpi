@@ -26,7 +26,6 @@ def spatial_join(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
 
 
 def set_temporary_ddpi_id(gdf: gpd.GeoDataFrame, start_index: int) -> gpd.GeoDataFrame:
-    print(start_index, len(gdf))
     gdf["ddpi_id"] = [start_index + i for i in range(len(gdf))]   
     
     return gdf
