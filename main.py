@@ -26,15 +26,17 @@ def spatial_join(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
 
 
 def set_ddpi_id(gdf: gpd.GeoDataFrame, start_index: int) -> gpd.GeoDataFrame:
-    gdf["ddpi_id"] = [start_index + i for i in range(len(gdf))]   
-    
+    gdf["ddpi_id"] = [start_index + i for i in range(len(gdf))]
+
     return gdf
+
 
 def write_geojson(gdf: gpd.GeoDataFrame, file_name: str):
     if os.path.isfile(file_name):
         os.remove(file_name)
 
     gdf.to_file(file_name, driver="GeoJson")
+
 
 def main():
     df_l = gpd.read_file(args.ddpi)
@@ -56,7 +58,6 @@ def main():
             break
 
     write_geojson(gdf, "new_ddpi.geojson")
-
 
 
 if __name__ == "__main__":
