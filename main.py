@@ -5,9 +5,9 @@ import geopandas as gpd
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument("existing")
-parser.add_argument("new")
-parser.add_argument("output")
+parser.add_argument("--existing", metavar="existing", type=str, help="enter the existing ddpi file")
+parser.add_argument("--new", metavar="new", type=str, help="enter the new ddpi file")
+parser.add_argument("--output", metavar="existing", type=str, help="enter the output file")
 args = parser.parse_args()
 
 
@@ -58,7 +58,7 @@ def main():
         if number_of_ports == len(gdf):
             break
 
-    write_geojson(gdf, "new_ddpi.geojson")
+    write_geojson(gdf, args.output)
 
 
 if __name__ == "__main__":
