@@ -5,8 +5,9 @@ import geopandas as gpd
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument("ddpi")
-parser.add_argument("ddpi_new")
+parser.add_argument("existing")
+parser.add_argument("new")
+parser.add_argument("output")
 args = parser.parse_args()
 
 
@@ -39,8 +40,8 @@ def write_geojson(gdf: gpd.GeoDataFrame, file_name: str):
 
 
 def main():
-    df_l = gpd.read_file(args.ddpi)
-    df_r = gpd.read_file(args.ddpi_new)
+    df_l = gpd.read_file(args.existing)
+    df_r = gpd.read_file(args.new)
 
     df_r = set_ddpi_id(df_r, len(df_l))
 
