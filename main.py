@@ -5,9 +5,9 @@ import geopandas as gpd
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--existing", metavar="existing", type=str, help="enter the existing ddpi file")
-parser.add_argument("--new", metavar="new", type=str, help="enter the new ddpi file")
-parser.add_argument("--output", metavar="existing", type=str, help="enter the output file")
+parser.add_argument("-e", "--existing", type=str, help="enter the existing ddpi file")
+parser.add_argument("-n", "--new", type=str, help="enter the new ddpi file")
+parser.add_argument("-o", "--output", type=str, help="enter the output file")
 args = parser.parse_args()
 
 
